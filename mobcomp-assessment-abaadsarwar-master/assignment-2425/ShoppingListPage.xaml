@@ -1,0 +1,75 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="assignment_2425.ShoppingListPage"
+             Title="Shopping List"
+             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15"
+                             WidthRequest="{OnIdiom Phone=Auto, Tablet=700}"
+                             HorizontalOptions="Center">
+
+            <!-- Page Title -->
+            <Label Text="🛒 Shopping List"
+                   Style="{StaticResource Headline}" />
+
+            <!-- Subtitle -->
+            <Label Text="Add, edit, or remove your items"
+                   Style="{StaticResource SubHeadline}" />
+
+            <!-- Add Item Section -->
+            <HorizontalStackLayout Spacing="10">
+                <Entry x:Name="ItemEntry"
+                       Placeholder="Enter item name"
+Style="{StaticResource EntryStyle}"
+                       HorizontalOptions="FillAndExpand"/>
+                <Button Text="Add"
+                        Style="{StaticResource ButtonStyle}"
+                        Clicked="OnAddItemClicked"/>
+            </HorizontalStackLayout>
+
+            <!-- Shopping Items -->
+            <CollectionView x:Name="ItemsList"
+                            ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="8"
+                               CornerRadius="10"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray700}}"
+                               BorderColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray800}}">
+
+                            <HorizontalStackLayout Spacing="10"
+                                                   VerticalOptions="Center">
+                                <!-- Item Name -->
+                                <Label Text="{Binding Name}"
+                                       VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+
+                                <!-- Edit Button -->
+                                <Button Text="Edit"
+                                        Clicked="OnEditItemClicked"
+                                        CornerRadius="6"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray500}}"
+                                        TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+
+                                <!-- Delete Button -->
+                                <Button Text="Delete"
+                                        Clicked="OnDeleteItemClicked"
+                                        CornerRadius="6"
+                                        BackgroundColor="Tomato"
+                                        TextColor="White" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Shop Finder -->
+            <Button Text="Find Nearest Shop 🗺️"
+                    Clicked="OnFindShopClicked"
+                    Margin="0,20,0,0"
+                    Style="{StaticResource ButtonStyle}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

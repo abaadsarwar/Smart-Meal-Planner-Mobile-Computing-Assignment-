@@ -1,0 +1,33 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="assignment_2425.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15"
+                             WidthRequest="{OnIdiom Phone=Auto, Tablet=700}"
+                             HorizontalOptions="Center">
+
+            <!-- Page Title -->
+            <Label Text="⚙️ App Settings"
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1"/>
+
+
+            <!-- Dark Mode Toggle -->
+            <HorizontalStackLayout Spacing="10"
+                                   VerticalOptions="Center">
+                <Label Text="🌙 Dark Mode"
+                       VerticalOptions="Center"
+                       FontSize="16"
+                       TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}"/>
+
+                <Switch x:Name="DarkModeSwitch"
+                        Toggled="OnDarkModeToggled"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

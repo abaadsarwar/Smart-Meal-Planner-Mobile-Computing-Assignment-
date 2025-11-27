@@ -1,0 +1,72 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="assignment_2425.MealsLibraryPage"
+             Title="Meals Library"
+             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="OnAddMealClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="15"
+                             WidthRequest="{OnIdiom Phone=Auto, Tablet=700}"
+                             HorizontalOptions="Center">
+
+            <!-- Page Title -->
+            <Label Text="🍜 Meals Library"
+                   Style="{StaticResource Headline}" />
+
+            <!-- Subtitle -->
+            <Label Text="Add, edit, or delete your saved meals."
+                   Style="{StaticResource SubHeadline}" />
+
+            <!-- Meals List -->
+            <CollectionView x:Name="MealsList"
+                            ItemsSource="{Binding Meals}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray800}}"
+                               BorderColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}"
+                               CornerRadius="10"
+                               Padding="12"
+                               Margin="0,5">
+                            <VerticalStackLayout>
+                                <!-- Meal Name -->
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="20"
+                                       TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                       LineBreakMode="WordWrap" />
+
+                                <!-- Meal Description -->
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"
+                                       LineBreakMode="WordWrap" />
+
+                                <!-- Actions -->
+                                <HorizontalStackLayout Spacing="10"
+                                                       Margin="0,5">
+                                    <Button Text="Edit"
+                                            Clicked="OnEditMealClicked"
+                                    Style="{StaticResource ButtonStyle}" />
+
+
+                                    <Button Text="Delete"
+                                            Clicked="OnDeleteMealClicked"
+                                            BackgroundColor="Tomato"
+                                            TextColor="White"
+                                            CornerRadius="8"
+                                            Padding="12,6" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="assignment_2425.MainPage"
+             Title="Smart Meal Planner"
+             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="20"
+                             WidthRequest="{OnIdiom Phone=Auto, Tablet=700}"
+                             HorizontalOptions="Center">
+
+            <Label Text="Plan your daily meals, track nutrition, and build your shopping list."
+                   Style="{StaticResource SubHeadline}"/>
+
+            <!-- Meal Summary -->
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   CornerRadius="15"
+                   Padding="15"
+                   BorderColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="📅 Today's Meal Plan"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"
+                               TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                               Grid.Column="0"/>
+
+                        <Button Text="🗣️"
+                                Clicked="OnReadSummaryClicked"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}"
+                                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                Padding="6"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                CornerRadius="20"
+                                FontSize="18"
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"/>
+                    </Grid>
+
+                    <VerticalStackLayout x:Name="MealSummaryLayout"
+                                         Grid.Row="1"
+                                         Spacing="8"
+                                         Margin="0,10,0,0"/>
+                </Grid>
+            </Frame>
+
+            <!-- Navigation Buttons -->
+            <Button Text="📅 Meal Planner" Clicked="OnMealPlannerClicked"/>
+            <Button Text="🍜 Meals Library" Clicked="OnMealsLibraryClicked"/>
+            <Button Text="🛒 Shopping List" Clicked="OnShoppingListClicked"/>
+            <Button Text="⚙️ Settings" Clicked="OnSettingsClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
