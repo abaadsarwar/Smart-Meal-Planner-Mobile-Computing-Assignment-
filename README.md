@@ -1,46 +1,100 @@
 # Smart-Meal-Planner-Mobile-Computing-Assignment-
-A cross-platform meal planning and food management app built using .NET MAUI for the Mobile Computing university module. The app helps users plan meals, store recipes, generate shopping lists, and explore food options through an intuitive, modern interface.
+Smart Meal Planner is a cross-platform food and meal management app built using .NET MAUI for the Mobile Computing (6G6Z0014) module.
+The app allows users to plan daily meals, maintain a meal library, manage a shopping list, and use device features such as shake detection, location services, haptic feedback, and text-to-speech. It is fully responsive across phones and tablets with WCAG-compliant light and dark themes.
+
 
 
 ⭐ Features
-Meal Storage (SQLite Local DB): Add, edit, delete, and view meals locally on device.
-Daily Meal Planner: Plan breakfast, lunch, dinner, and snacks for a single day with persistent storage.
-Shake-to-Select Meal: Uses the accelerometer to randomly choose a meal when the device is shaken.
-Shopping List: Add custom items, mark as complete, edit, delete, and save in local storage.
-Nearest Shop Finder: Uses device location services to help users find nearby stores.
-Theming: Fully implemented light/dark mode toggle with consistent colors based on WCAG guidelines.
-Responsive UI: All pages optimised for both mobile and tablet layouts.
-Error Handling & Validation: Every page includes robust validation, safe database operations, and user-friendly feedback.
+📌 Meal Planner
+Plan Breakfast, Lunch, and Dinner
+Shake-to-select meals using the accelerometer
+Save or reset today’s plan (stored locally via SQLite)
+Validation prevents empty or invalid plans
+Includes haptic feedback on all actions
+
+📌 Meals Library
+Add, edit, and delete meals
+SQLite-powered data persistence
+Validation + error handling
+Responsive layouts for tablets
+
+📌 Shopping List
+Add, edit, delete shopping items
+Vibration feedback for each action
+Find nearest grocery store using:
+Device GPS
+Connectivity check
+Opens Google Maps automatically
+
+📌 Home Page
+Shows today’s planned meals
+Text-to-Speech (TTS) reads out the meal plan
+If no meals are planned, TTS is skipped and a message is shown
+
+📌 Settings
+Toggle Light/Dark mode
+Uses WCAG-compliant colors
+Includes haptic feedback for accessibility
+
+
+
+🔧 Device Features Used
+Feature	Purpose	Used In
+Haptic Feedback (Vibration)	Confirms actions	Meal Planner, Meals Library, Shopping List, Settings
+Accelerometer (Shake Detection)	Random meal generation	Meal Planner
+Location Services	Find nearest shop	Shopping List
+Text-to-Speech (TTS)	Read today's meals out loud	Home Page
+
 
 
 🧱 Technologies Used
 .NET MAUI (C#)
 SQLite local database
 MVVM architecture
-XAML for UI
-Location APIs
-Accelerometer / Sensors API
+XAML UI
+Location API & Sensors API
+Android deployment & testing
+
+
+
+
+📁 Project Structure
+/Models       → Meal, PlannedMeal, ShoppingItem
+/Views        → UI pages (XAML)
+/ViewModels   → Logic for each page (MVVM)
+/Services     → SQLite DB and helpers
+/Resources    → Styles, colours, images, themes
+
+
 
 
 🎯 Purpose of the Project
-This app was built as part of a university assessment to demonstrate:
-Cross-platform development using .NET MAUI
-Use of device features (sensors, location)
-Local database integration
-UI/UX principles, accessibility, and responsiveness
-Clean code with comments, validation, and testing
+This project demonstrates:
+Cross-platform mobile development with .NET MAUI
+Integration of device sensors (Accelerometer, GPS)
+Local database storage for offline use
+Accessible UI/UX with WCAG compliance
+Responsive layouts for tablets and phones
+Validated, error-free user interactions with feedback
 
 
-📁 Structure
-/Models – Data models (Meal, PlannedMeal, ShoppingItem)
-/Views – XAML pages
-/ViewModels – Logic for each page (MVVM)
-/Services – SQLite database and helper services
-/Resources – Colors, styles, images, and themes
+
+🧪 Testing & Deployment
+Tested on:
+Android physical device
+Android tablet emulator
+Validated across portrait/landscape
+Ensured stability for:
+Shake detection
+Database operations
+Location permissions
+Offline/online transitions
+
+
 
 
 🚀 How to Run
-Clone the repo
-Open in Visual Studio 2022
-Select Android Emulator or physical device
-Run the project
+Clone the repository
+Open the solution in Visual Studio 2022
+Select an Android emulator or physical device
+Press Run
